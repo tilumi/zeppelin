@@ -493,6 +493,14 @@ public class ZeppelinConfiguration extends XMLConfiguration {
     return getString(ConfVars.ZEPPELIN_CONF_DIR);
   }
 
+  public String getGcsUser() {
+    return getString(ZeppelinConfiguration.ConfVars.ZEPPELIN_NOTEBOOK_GCS_USER);
+  }
+
+  public String getGcsBucket() {
+    return conf.getString(ZeppelinConfiguration.ConfVars.ZEPPELIN_NOTEBOOK_GCS_BUCKET);
+  }
+
   public List<String> getAllowedOrigins()
   {
     if (getString(ConfVars.ZEPPELIN_ALLOWED_ORIGINS).isEmpty()) {
@@ -639,6 +647,9 @@ public class ZeppelinConfiguration extends XMLConfiguration {
     ZEPPELIN_NOTEBOOK_MONGO_COLLECTION("zeppelin.notebook.mongo.collection", "notes"),
     ZEPPELIN_NOTEBOOK_MONGO_URI("zeppelin.notebook.mongo.uri", "mongodb://localhost"),
     ZEPPELIN_NOTEBOOK_MONGO_AUTOIMPORT("zeppelin.notebook.mongo.autoimport", false),
+    ZEPPELIN_NOTEBOOK_GCS_IS_IN_APP_ENGINE("zeppelin.notebook.googleCloudStorage.isInAppEngine", false),
+    ZEPPELIN_NOTEBOOK_GCS_BUCKET("zeppelin.notebook.googleCloudStorage.bucket", "zeppelin"),
+    ZEPPELIN_NOTEBOOK_GCS_USER("zeppelin.notebook.googleCloudStorage.user", "notebook"),
     ZEPPELIN_NOTEBOOK_STORAGE("zeppelin.notebook.storage", GitNotebookRepo.class.getName()),
     ZEPPELIN_NOTEBOOK_ONE_WAY_SYNC("zeppelin.notebook.one.way.sync", false),
     // whether by default note is public or private
